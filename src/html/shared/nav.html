@@ -1,0 +1,34 @@
+<!-- nav.html -->
+<nav>
+  <div class="container">
+    <div>{{page.url}}</div>
+    <ul>
+      <li>
+        <a href="{{base_path}}" class="{{'active' if nav_active == '/'}}"
+          >Головна</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{base_path}}about"
+          class="{{'active' if nav_active == '/about'}}"
+          >Про мене</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{base_path}}pracs"
+          class="{{'active' if nav_active == '/pracs'}}"
+          >Практичні роботи</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{base_path}}labs"
+          class="{{'active' if nav_active == '/labs'}}"
+          >Лабораторні роботи</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

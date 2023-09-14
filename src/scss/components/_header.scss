@@ -1,0 +1,25 @@
+header {
+  position: relative;
+  flex: 0 0;
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+  z-index: 10000;
+
+  padding: 0 28px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    word-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

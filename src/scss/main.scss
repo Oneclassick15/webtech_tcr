@@ -1,0 +1,51 @@
+@import 'base/base';
+
+@import 'components/header';
+@import 'components/nav';
+@import 'components/footer';
+
+main {
+  flex: 1 1 auto;
+  /* height: 1000px; */
+  padding: 30px 0;
+
+  section {
+    margin-bottom: 30px;
+    padding: 0 30px;
+
+    .container {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 12px rgb(0 0 0 / 15%);
+
+      /* min-height: 100vh; */
+      overflow: hidden;
+    }
+
+    .section-header {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+
+      display: flex;
+      flex-direction: row;
+      white-space: nowrap;
+      align-items: center;
+      gap: 30px;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        background: #000;
+      }
+    }
+  }
+}

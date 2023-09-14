@@ -1,0 +1,36 @@
+footer {
+  flex: 0 0;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgb(0 0 0 / 25%);
+  border-top: 1px solid #000;
+  padding: 0 30px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    /* margin-bottom: 4px; */
+    word-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .phone,
+  .email {
+    opacity: 0.6;
+    font-size: 16px;
+  }
+}
