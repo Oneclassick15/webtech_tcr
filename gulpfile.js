@@ -47,6 +47,8 @@ function serve() {
     server: {
       baseDir: './dist',
     },
+    ghostMode: false,
+    notify: false,
   });
 
   gulp.watch('src/html/**/*.+(html|njk)', html);
