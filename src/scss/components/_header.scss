@@ -1,22 +1,22 @@
 header {
   position: relative;
   flex: 0 0;
-  background-color: #fff;
-  border-bottom: 1px solid #000;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--text-color);
   z-index: 10000;
 
-  padding: 0 28px;
+  padding: 0 2rem;
 
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 2rem 0;
   }
 
   .title {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 900;
     word-wrap: nowrap;
     white-space: nowrap;
     overflow: hidden;

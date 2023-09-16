@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
-  line-height: 1;
+  line-height: inherit;
 
   font-family: inherit;
   font-size: inherit;
@@ -12,10 +12,27 @@
   text-decoration: inherit;
 }
 
+:root {
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1;
+  color-scheme: light dark;
+
+  --background-color: #fff;
+  --secondary-background-color: #f1f2f4;
+  --text-color: #000;
+
+  @media screen and (prefers-color-scheme: dark) {
+    --background-color: #1e1e1e;
+    --secondary-background-color: #121212;
+    --text-color: #fff;
+  }
+}
+
 body {
-  background-color: #f1f2f4;
+  background-color: var(--secondary-background-color);
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
+  color: var(--text-color);
 }
 
 .wrapper {
