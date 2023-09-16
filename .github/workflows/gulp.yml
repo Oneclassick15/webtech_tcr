@@ -3,7 +3,7 @@ name: Deploy Gulp to Pages
 on:
   push:
     branches:
-      - code
+      - master
   workflow_dispatch:
 
 permissions:
@@ -63,8 +63,8 @@ jobs:
       - name: Push to master
         uses: casperdcl/push-dir@v1
         with:
-          message: Deploy to master branch
-          branch: master
+          message: Deploy to web branch
+          branch: web
           dir: dist
           nojekyll: true
           history: false
