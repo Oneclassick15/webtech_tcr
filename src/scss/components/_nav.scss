@@ -49,9 +49,9 @@ nav {
           background-color: var(--text-color);
           color: #fff;
 
-          @media screen and (prefers-color-scheme: dark) {
-            color: #000;
-          }
+          // @media screen and (prefers-color-scheme: dark) {
+          //  color: #000;
+          // }
 
           &:hover {
             opacity: 0.9;
