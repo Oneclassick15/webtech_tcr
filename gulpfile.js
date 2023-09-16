@@ -42,6 +42,10 @@ function scss() {
     .pipe(bs.stream());
 }
 
+function moveAssets() {
+  return gulp.src('src/assets/**/*').pipe(gulp.dest('./dist/assets'));
+}
+
 function serve() {
   bs.init({
     server: {
@@ -54,7 +58,12 @@ function serve() {
   gulp.watch('src/html/**/*.+(html|njk)', html);
   gulp.watch('src/scss/**/*.scss', gulp.series(cleanStyles, scss));
   gulp.watch(['./dist/**/*', '!./dist/css/*']).on('change', bs.reload);
+  gulp.watch('src/assets/**/*', moveAssets);
 }
 
-exports.build = gulp.series(clean, gulp.parallel(html, scss));
-exports.default = gulp.series(clean, gulp.parallel(html, scss), serve);
+exports.build = gulp.series(clean, gulp.parallel(moveAssets, html, scss));
+exports.default = gulp.series(
+  clean,
+  gulp.parallel(moveAssets, html, scss),
+  serve,
+);
