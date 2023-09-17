@@ -70,7 +70,10 @@ main {
     .section-body {
       font-size: 16px;
       line-height: 1.2;
-      padding-bottom: 1rem;
+
+      &:not(:first-child) {
+        padding-bottom: 1rem;
+      }
     }
 
     @media screen and (max-width: 600px) {
