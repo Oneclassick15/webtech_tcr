@@ -20,48 +20,55 @@ main {
     .container {
       background-color: var(--background-color);
       border-radius: 0.5rem;
-      padding: 2rem;
+      padding: 1rem 2rem;
       box-shadow: 0 0 0.5rem rgb(0 0 0 / 10%);
 
       display: flex;
       justify-content: stretch;
       flex-direction: column;
-      gap: 1.2rem;
 
       /* min-height: 100vh; */
-      overflow: hidden;
     }
 
     .section-header {
       // margin-bottom: 1rem;
-    }
+      position: sticky;
+      top: calc(var(--nav-height, 0));
+      padding: 1rem 0;
+      z-index: 9998;
+      background-color: #fff;
 
-    .section-title {
-      font-size: 16px;
-      font-weight: 900;
-      text-align: center;
+      // border-inline: 1px solid var(--text-color);
 
-      display: flex;
-      flex-direction: row;
-      white-space: nowrap;
-      align-items: center;
-      gap: 1rem;
-      text-transform: uppercase;
+      .section-title {
+        font-size: 16px;
+        font-weight: 900;
+        text-align: center;
 
-      &::before,
-      &::after {
-        content: '';
-        display: block;
-        height: 0.5px;
-        width: 100%;
-        background: var(--text-color);
-        opacity: 0.4;
+        display: flex;
+        flex-direction: row;
+        white-space: nowrap;
+        align-items: center;
+        gap: 1rem;
+        text-transform: uppercase;
+
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          height: 1px;
+          width: 100%;
+          background: var(--text-color);
+          // opacity: 0.4;
+          margin-bottom: -1px;
+        }
       }
     }
 
     .section-body {
       font-size: 16px;
       line-height: 1.2;
+      padding-bottom: 1rem;
     }
 
     @media screen and (max-width: 600px) {
@@ -69,7 +76,11 @@ main {
       .container {
         box-shadow: none;
         border-radius: 0;
-        padding: 3rem 2rem;
+        padding: 1rem 2rem 2rem;
+
+        .section-header {
+          transition: top 0.5s ease-in-out;
+        }
       }
     }
   }
@@ -78,9 +89,8 @@ main {
 .about__photo {
   // height: 520px;
   position: relative;
-  // overflow: hidden;
   border: 1px solid var(--text-color);
-  border-radius: 0.375rem;
+  border-radius: 6px;
   // transition: all 0.3s ease-in-out;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -100,28 +110,8 @@ main {
   .overlay {
     position: relative;
     // padding: 2rem;
-    border-radius: 0.375rem;
-    overflow: hidden;
-
-    &::before {
-      display: block;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: #000;
-      border-radius: 0.375rem;
-      opacity: 0;
-
-      transition: all 0.3s ease-in-out;
-    }
 
     .text {
-      position: sticky;
-      top: 0;
-      left: 0;
       font-weight: 300;
       font-size: 20px;
       padding: 1rem;
@@ -137,8 +127,8 @@ main {
       font-size: 1rem;
       padding: 2rem;
       background: rgb(0 0 0 / 80%);
-      border-radius: 0.375rem;
-      border-color: transparent;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       box-shadow: none;
 
       opacity: 0;
@@ -156,10 +146,6 @@ main {
     }
 
     .overlay {
-      &::before {
-        // opacity: 0.1;
-      }
-
       .hidden {
         opacity: 1;
         transform: translateY(0);

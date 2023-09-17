@@ -9,9 +9,11 @@ nav {
   background-color: var(--background-color);
   border-bottom: 1px solid var(--text-color);
 
-  box-shadow: 0 0 1rem rgb(0 0 0 / 20%);
+  box-shadow: 0 0 0.5rem rgb(0 0 0 / 20%);
 
   z-index: 9999;
+
+  transition: top 0.5s ease-in-out;
 
   ul {
     list-style: none;
