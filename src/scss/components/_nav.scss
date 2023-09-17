@@ -43,8 +43,15 @@ nav {
         overflow: hidden;
         text-overflow: ellipsis;
 
-        &:hover {
+        &:active,
+        &:focus-visible {
           background: #0001;
+        }
+
+        @media screen and (min-width: 600px) {
+          &:hover {
+            background: #0001;
+          }
         }
 
         &.active {
@@ -55,8 +62,15 @@ nav {
           //  color: #000;
           // }
 
-          &:hover {
+          &:active,
+          &:focus-visible {
             opacity: 0.9;
+          }
+
+          @media screen and (min-width: 600px) {
+            &:hover {
+              opacity: 0.9;
+            }
           }
         }
       }

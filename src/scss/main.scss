@@ -48,16 +48,18 @@ main {
         display: flex;
         flex-direction: row;
         white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         align-items: center;
         gap: 1rem;
         text-transform: uppercase;
 
         &::before,
         &::after {
+          flex: 1 1 auto;
           content: '';
           display: block;
           height: 1px;
-          width: 100%;
           background: var(--text-color);
           // opacity: 0.4;
           margin-bottom: -1px;
@@ -139,7 +141,7 @@ main {
     }
   }
 
-  &:hover {
+  &:focus {
     img {
       transform: scale(1.15);
       filter: grayscale(0);
@@ -149,6 +151,22 @@ main {
       .hidden {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    &:hover {
+      img {
+        transform: scale(1.15);
+        filter: grayscale(0);
+      }
+
+      .overlay {
+        .hidden {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     }
   }

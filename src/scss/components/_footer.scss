@@ -12,14 +12,16 @@ footer {
     padding: 1rem 0;
   }
 
+  .title__wrapper {
+    overflow: hidden;
+  }
+
   .title {
     font-size: 24px;
     font-weight: 900;
-    /* margin-bottom: 4px; */
-    word-wrap: nowrap;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .info {
