@@ -28,7 +28,7 @@ function html() {
   return gulp
     .src('src/html/pages/**/*.+(html|njk)')
     .pipe(njk({ path: ['src/html/'] }))
-    .pipe(beautify.html({ indent_size: 4, preserve_newlines: false }))
+    .pipe(beautify.html({ indent_size: 4, preserve_newlines: true }))
     .pipe(gulp.dest('./dist'));
 }
 

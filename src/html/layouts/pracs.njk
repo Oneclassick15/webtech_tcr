@@ -1,0 +1,14 @@
+{% set page_name = prac_name %}
+{% set base_path = '../../' %}
+{% set nav_active = '/pracs' %}
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">{{prac_name}}</h1>
+      </div>
+    </div>
+  </section>
+{% endblock %}

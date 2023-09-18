@@ -1,0 +1,104 @@
+{% set page_name = 'Лабораторні роботи' %}
+{% set base_path = '../' %}
+{% set nav_active = '/labs' %}
+{% extends "layouts/base.njk" %}
+
+{% block styles %}
+  <style>
+    .labs {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      /* flex-direction: column; */
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .labs li {
+      flex: 1 1 300px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .labs li a {
+      border: 1px solid var(--text-color);
+      border-radius: 6px;
+      flex: 1 1 auto;
+      display: block;
+      padding: 1rem;
+      text-decoration: none;
+      color: var(--color-text);
+      font-size: 18px;
+      font-weight: 400;
+      word-wrap: nowrap;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      /* transition: color 0.2s ease-in-out; */
+    }
+
+    .labs a:not([disabled]):active,
+    .labs a:not([disabled]):focus-visible {
+      background: #000;
+      color: #fff;
+    }
+
+    @media screen and (min-width: 600px) {
+      .labs a:not([disabled]):hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+
+    .labs li[disabled] {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+
+    .labs li[disabled] a {
+      pointer-events: none;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Лабораторні роботи</h1>
+      </div>
+
+      <div class="section-body">
+        <ul class="labs">
+          <li disabled>
+            <a href="l1">Лабораторна 1</a>
+          </li>
+          <li disabled>
+            <a href="l2">Лабораторна 2</a>
+          </li>
+          <li disabled>
+            <a href="l3">Лабораторна 3</a>
+          </li>
+          <li disabled>
+            <a href="l4">Лабораторна 4</a>
+          </li>
+          <li disabled>
+            <a href="l5">Лабораторна 5</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    (function () {
+      const disabledPracs = document.querySelectorAll('.labs li[disabled] a');
+      disabledPracs.forEach((prac) => {
+        prac.setAttribute('tabindex', '-1');
+      });
+    })();
+  </script>
+{% endblock %}
