@@ -4,6 +4,9 @@
 {% block styles %}
   {{ super() }}
   <style>
+    table {
+      border-collapse: separate;
+    }
 
     table b {
       font-weight: bold;
@@ -44,12 +47,24 @@
       background: #0001;
     }
 
+    table tr:not(.head):hover td:hover {
+      background: #0002;
+    }
+
     table tr:not(.head):not(.end) td {
       border-bottom: 1px solid #000000;
     }
 
     table tr:not(.head) td:not(:last-child) {
       border-right: 1px solid #000000;
+    }
+
+    table tr.end {
+      margin-bottom: 1rem;
+    }
+
+    table tr.spacer {
+      height: 2rem;
     }
   </style>
 {% endblock %}
@@ -97,6 +112,7 @@
                 </tr>
               {% endfor %}
 
+              <tr class="spacer"></tr>
             {% endfor %}
 
           </table>
