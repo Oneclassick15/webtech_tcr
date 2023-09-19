@@ -3,14 +3,105 @@
 
 {% block styles %}
   {{ super() }}
-  <style></style>
+  <style>
+
+    table b {
+      font-weight: bold;
+    }
+
+    table tr.head td {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    table tr.head td:first-child {
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+
+    table tr.head td:last-child {
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    table tr:not(.head).start td:first-child {
+      border-top-left-radius: 0.5rem;
+    }
+
+    table tr:not(.head).start td:last-child {
+      border-top-right-radius: 0.5rem;
+    }
+
+    table tr:not(.head).end td:first-child {
+      border-bottom-left-radius: 0.5rem;
+    }
+
+    table tr:not(.head).end td:last-child {
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    table tr:not(.head):hover td {
+      background: #0001;
+    }
+
+    table tr:not(.head):not(.end) td {
+      border-bottom: 1px solid #000000;
+    }
+
+    table tr:not(.head) td:not(:last-child) {
+      border-right: 1px solid #000000;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
   {{ super() }}
   <section>
     <div class="container">
-      <div class="section-body"></div>
+      <div class="section-body" align="center">
+
+        <div style="overflow: auto hidden;">
+          <table cellspacing="0" align="center">
+            {% for day, items in Prac1Data.dates %}
+              <tr class="head">
+                <td align="center" height="50" width="100">{{day}}</td>
+                {% for item in items %}
+                  <td align="center" height="50" width="200">{{item}}</td>
+                {% endfor %}
+              </tr>
+
+              {% for lessons in Prac1Data.lessons[loop.index0] %}
+                <tr align="center" class="{{ 'start' if loop.first }}{{ 'end' if loop.last }}">
+                  {% for item in lessons %}
+                    {% if loop.first %}
+                      <td>
+                        {% for i in item %}
+                          <div>{{i}}</div>
+                        {% endfor %}
+                      </td>
+                    {% else %}
+                      {% if item %}
+                        <td align="center" height="100">
+                          <div>
+                            {{item[0]}}
+                            <b>[{{item[1]}}]</b>
+                          </div>
+                          <div>{{item[2]}}</div>
+                          <div>{{item[3]}}</div>
+                        </td>
+                      {% else %}
+                        <td></td>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+
+            {% endfor %}
+
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 {% endblock %}

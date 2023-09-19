@@ -6,6 +6,8 @@ const bs = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 
+const Prac1Data = require('./src/data/prac1.json');
+
 function del(dirs) {
   dirs.forEach((dir) => {
     if (fs.existsSync(dir)) {
@@ -27,7 +29,7 @@ function cleanStyles(cb) {
 function html() {
   return gulp
     .src('src/html/pages/**/*.+(html|njk)')
-    .pipe(njk({ path: ['src/html/'] }))
+    .pipe(njk({ path: ['src/html/'], data: { Prac1Data } }))
     .pipe(beautify.html({ indent_size: 4, preserve_newlines: true }))
     .pipe(gulp.dest('./dist'));
 }
