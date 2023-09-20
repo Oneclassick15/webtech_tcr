@@ -4,6 +4,35 @@
 {% block styles %}
   {{ super() }}
   <style>
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: #000b;
+      z-index: 999999999999;
+      visibility: hidden;
+    }
+
+    .modal .container {
+      width: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .modal.open {
+      visibility: visible;
+    }
+
+    .modal.open .container {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
     form {
       display: flex;
       flex-direction: column;
@@ -49,13 +78,64 @@
       background: #000;
       color: #fff;
     }
+
+    button {
+      display: block;
+      width: 100%;
+      height: 40px;
+      border-radius: 0.25rem;
+      border: 1px solid #000;
+      padding: 0 1rem;
+      background: 0;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    @media screen and (max-width: 600px) {
+      .row {
+        flex-direction: column;
+      }
+
+      .modal .container {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transform: scale(.3);
+      }
+
+      .modal.open .container {
+        transform-origin: center;
+        transform: scale(1);
+      }
+
+      .modal .section-header {
+        top: 0;
+      }
+    }
   </style>
 {% endblock %}
 
 {% block content %}
   {{ super() }}
+
   <section>
     <div class="container">
+      <div class="section-body">
+        <button id="open-modal">OPEN FORM</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="modal">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Modal</h1>
+      </div>
       <div class="section-body" align="center">
         <form action="https://webhook.site/b9213059-62a0-4b90-b93f-e61e111ea894">
           <div class="row">
@@ -86,6 +166,8 @@
           </div>
 
           <input type="submit" value="submit">
+
+          <button id="close-modal">CLOSE</button>
         </form>
       </div>
     </div>
@@ -123,6 +205,29 @@
           form.reset();
         })
 
+    });
+
+    const modal = document.querySelector('.modal');
+    const openModal = document.querySelector('#open-modal');
+    const closeModal = document.querySelector('#close-modal');
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal
+          .classList
+          .remove('open');
+      }
+    });
+    openModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal
+        .classList
+        .add('open');
+    });
+    closeModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal
+        .classList
+        .remove('open');
     });
   </script>
 {% endblock %}
