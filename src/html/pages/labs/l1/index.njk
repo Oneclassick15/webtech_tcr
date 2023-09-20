@@ -217,6 +217,16 @@
           .remove('open');
       }
     });
+
+    window.addEventListener("keydown", (e) => {
+      console.log(e.code);
+      if (e.code !== 'Escape') 
+        return;
+      modal
+        .classList
+        .remove('open');
+    });
+
     openModal.addEventListener('click', (e) => {
       e.preventDefault();
       modal
