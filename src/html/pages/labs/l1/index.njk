@@ -3,14 +3,122 @@
 
 {% block styles %}
   {{ super() }}
-  <style></style>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+    }
+
+    form label {
+      text-align: left;
+    }
+
+    form .row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    form .row > * {
+      flex: 1;
+    }
+
+    .group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    form input {
+      height: 40px;
+      border-radius: 0.25rem;
+      border: 1px solid #000;
+      padding: 0 1rem;
+    }
+
+    form input[type=submit] {
+      background: 0;
+      cursor: pointer;
+    }
+    form input[type=submit]:hover {
+      background: #000;
+      color: #fff;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
   {{ super() }}
   <section>
     <div class="container">
-      <div class="section-body"></div>
+      <div class="section-body" align="center">
+        <form action="https://webhook.site/b9213059-62a0-4b90-b93f-e61e111ea894">
+          <div class="row">
+            <div class="group">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Sirius" required>
+            </div>
+
+            <div class="group">
+              <label for="surname">Surname</label>
+              <input type="text" name="surname" id="surname" placeholder="Black" required>
+            </div>
+          </div>
+
+          <div class="group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="sirius@mail.com" required>
+          </div>
+
+          <div class="group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+          </div>
+
+          <div class="group">
+            <label for="re_password">Repeat Password</label>
+            <input type="password" name="re_password" id="re_password" required>
+          </div>
+
+          <input type="submit" value="submit">
+        </form>
+      </div>
     </div>
   </section>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    const form = document.querySelector('form');
+    const formAction = form.getAttribute('action');
+    const password = document.querySelector('#password');
+    const rePassword = document.querySelector('#re_password');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (password.value !== rePassword.value) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      fetch(formAction, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new FormData(form)
+      })
+        .then(() => {
+          alert('Form submitted');
+        })
+        .catch((e) => {
+          console.error(e);
+          alert('Form not submitted');
+        })
+        . finally(() => {
+          form.reset();
+        })
+
+    });
+  </script>
 {% endblock %}
