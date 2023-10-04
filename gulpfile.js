@@ -22,7 +22,7 @@ function clean(cb) {
 }
 
 function cleanStyles(cb) {
-  del(['./dist/css']);
+  del(['./dist/assets/css']);
   cb();
 }
 
@@ -40,7 +40,7 @@ function scss() {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./dist/assets/css'))
     .pipe(bs.stream());
 }
 
@@ -49,7 +49,7 @@ function moveAssets() {
 }
 
 function moveJs() {
-  return gulp.src('src/js/**/*').pipe(gulp.dest('./dist/js'));
+  return gulp.src('src/js/**/*').pipe(gulp.dest('./dist/assets/js'));
 }
 
 function serve() {
@@ -63,7 +63,7 @@ function serve() {
 
   gulp.watch('src/html/**/*.+(html|njk)', html);
   gulp.watch('src/scss/**/*.scss', gulp.series(cleanStyles, scss));
-  gulp.watch(['./dist/**/*', '!./dist/css/*']).on('change', bs.reload);
+  gulp.watch(['./dist/**/*', '!./dist/assets/css/*']).on('change', bs.reload);
   gulp.watch('src/assets/**/*', moveAssets);
   gulp.watch('src/js/**/*', moveJs);
 }
