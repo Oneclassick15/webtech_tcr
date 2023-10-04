@@ -1,0 +1,66 @@
+* {
+  font-family: sans-serif;
+}
+
+li:first-child {
+  font-weight: bolder;
+}
+
+li:first-child,
+li:last-child {
+  font-size: 24px;
+}
+
+a:last-child {
+  color: red;
+}
+
+input[type='text'] {
+  border: 1px solid blue;
+}
+
+input:disabled {
+  background-color: #ccc;
+}
+
+input:checked {
+  accent-color: lightblue;
+}
+
+div > p {
+  font-weight: bold;
+}
+
+div p {
+  font-size: 16px;
+}
+
+*[href^='https'] {
+  color: green !important;
+}
+
+li > a {
+  text-decoration: underline;
+}
+
+li:nth-child(even) {
+  font-weight: bolder;
+}
+
+input[type='text']:not(:disabled) {
+  background-color: #333;
+}
+
+.special + li {
+  text-decoration: line-through;
+}
+
+p::first-letter {
+  font-size: 36px;
+  background-color: yellow;
+}
+
+a::after {
+  display: inline-block;
+  content: '↗';
+}

@@ -17,7 +17,7 @@ main {
   section {
     padding: 0 1rem;
 
-    .container {
+    & > .container {
       background-color: var(--background-color);
       border-radius: 0.5rem;
       padding: 1rem 2rem;
