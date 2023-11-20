@@ -1,5 +1,8 @@
-{% set lab_name = 'Лабораторна 1 & Практична 2' %}
+{% from 'components/_section.njk' import section %}
+
 {% extends "layouts/labs.njk" %}
+
+{% set lab_name = 'Лабораторна 1 & Практична 2' %}
 
 {% block styles %}
   {{ super() }}
@@ -123,15 +126,11 @@
 {% block content %}
   {{ super() }}
 
-  <section>
-    <div class="container">
-      <div class="section-body">
-        <button id="open-modal">OPEN FORM</button>
-      </div>
-    </div>
-  </section>
+  {% call section() %}
+  <button id="open-modal">OPEN FORM</button>
+  {% endcall %}
 
-  <section class="modal">
+  <section class="section modal">
     <div class="container">
       <div class="section-header">
         <h1 class="section-title">Modal</h1>
@@ -174,7 +173,7 @@
   </section>
 {% endblock %}
 
-{% block scripts %}
+{% block js %}
   <script>
     const form = document.querySelector('form');
     const formAction = form.getAttribute('action');

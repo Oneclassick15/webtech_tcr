@@ -1,113 +1,82 @@
+{% from 'components/_section.njk' import section %}
+
+{% extends "layouts/main.njk" %}
+
 {% set page_name = 'Про мене' %}
-{% set base_path = '../' %}
+{% set base_path = '..' %}
 {% set nav_active = '/about' %}
-{% extends "layouts/base.njk" %}
 
 {% block content %}
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">Про мене</h1>
-      </div>
+  {% call section('Про мене') %}
+  <figure class="about__photo" tabindex="0">
+    <img src="{{ assets_path }}/img/ava2019-ua.png" alt="AVA"/>
 
-      <div class="section-body">
-        <figure class="about__photo" tabindex="0">
-          <img src="../assets/img/ava2019-ua.png" alt="AVA"/>
-
-          <div class="overlay">
-            <p class="text">ava2019.png</p>
-            <div class="hidden">Моє зображення профілю з 2019 року 🦝</div>
-          </div>
-        </figure>
-
-        <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
-        deleniti. Corrupti quidem, facilis sit numquam reprehenderit quibusdam
-        exercitationem aliquid necessitatibus optio commodi perferendis dolorum
-        voluptas beatae quos magni fugiat adipisci blanditiis laudantium
-        repudiandae repellat. Nemo adipisci, facilis quis ab, vel ullam dicta
-        iusto error, labore doloremque placeat necessitatibus voluptate! Dolor
-        deleniti illo tempore neque. Aut voluptatibus praesentium ea
-        reprehenderit numquam quod, doloremque ducimus suscipit sequi porro
-        distinctio voluptatum tempore, ipsam laborum beatae eligendi veritatis
-        expedita nam! Accusamus a ut aliquid magni? Eos doloribus debitis, sunt
-        voluptatibus dignissimos iste libero unde, repellendus, laborum culpa
-        eveniet rerum! Illo, distinctio. Officia veniam tempora quos iusto
-        consectetur sed a velit praesentium fugit nesciunt reiciendis,
-        distinctio non labore! Dolores illum quaerat animi error iste laboriosam
-        sint dicta minima ab ratione fuga reprehenderit quod voluptas tempora
-        maxime numquam nobis repellat vero impedit, nulla atque ullam!
-        Repellendus assumenda enim modi, sed adipisci illo. Perferendis iusto
-        labore nostrum maxime. Eaque totam molestias optio natus quidem velit
-        eligendi voluptas amet laudantium explicabo, eveniet dolorum illo nam
-        autem vero suscipit, nulla deserunt repellendus. Deleniti voluptates
-        illum amet inventore ex dolor voluptas, doloremque, aliquid laboriosam
-        temporibus quam rerum necessitatibus soluta suscipit commodi, nobis
-        consequuntur. Nihil hic exercitationem nulla assumenda officiis nisi.
-      </p>
-      </div>
+    <div class="overlay">
+      <p class="text">ava2019.png</p>
+      <div class="hidden">Моє зображення профілю з 2019 року 🦝</div>
     </div>
-  </section>
+  </figure>
 
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">Хобі та Інтереси</h1>
-      </div>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, deleniti.
+    Corrupti quidem, facilis sit numquam reprehenderit quibusdam exercitationem
+    aliquid necessitatibus optio commodi perferendis dolorum voluptas beatae quos
+    magni fugiat adipisci blanditiis laudantium repudiandae repellat. Nemo
+    adipisci, facilis quis ab, vel ullam dicta iusto error, labore doloremque
+    placeat necessitatibus voluptate! Dolor deleniti illo tempore neque. Aut
+    voluptatibus praesentium ea reprehenderit numquam quod, doloremque ducimus
+    suscipit sequi porro distinctio voluptatum tempore, ipsam laborum beatae
+    eligendi veritatis expedita nam! Accusamus a ut aliquid magni? Eos doloribus
+    debitis, sunt voluptatibus dignissimos iste libero unde, repellendus, laborum
+    culpa eveniet rerum! Illo, distinctio. Officia veniam tempora quos iusto
+    consectetur sed a velit praesentium fugit nesciunt reiciendis, distinctio non
+    labore! Dolores illum quaerat animi error iste laboriosam sint dicta minima ab
+    ratione fuga reprehenderit quod voluptas tempora maxime numquam nobis repellat
+    vero impedit, nulla atque ullam! Repellendus assumenda enim modi, sed adipisci
+    illo. Perferendis iusto labore nostrum maxime. Eaque totam molestias optio
+    natus quidem velit eligendi voluptas amet laudantium explicabo, eveniet
+    dolorum illo nam autem vero suscipit, nulla deserunt repellendus. Deleniti
+    voluptates illum amet inventore ex dolor voluptas, doloremque, aliquid
+    laboriosam temporibus quam rerum necessitatibus soluta suscipit commodi, nobis
+    consequuntur. Nihil hic exercitationem nulla assumenda officiis nisi.
+  </p>
+  {% endcall %}
 
-      <div class="section-body">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ab
-        ullam cupiditate suscipit sit ut pariatur a asperiores repudiandae iste
-        ipsa in voluptatibus consectetur debitis perferendis assumenda odit
-        incidunt, numquam libero. Non facilis voluptatibus ducimus cupiditate,
-        dolorum odio cum dolorem laborum velit eligendi aperiam consectetur
-        perferendis suscipit culpa. Saepe aut in eos temporibus minus eaque
-        corrupti doloribus quia magnam repellendus, quisquam exercitationem
-        veniam tenetur repudiandae ex ipsa non, illo quo soluta odit. Velit,
-        harum! Velit, suscipit asperiores? Rem necessitatibus, magnam cum
-        ducimus maxime ut. Amet architecto ad reiciendis repellat quam dolor.
-        Blanditiis cumque repellendus consequatur sunt minus vitae,
-        exercitationem ad?
-      </p>
-      </div>
-    </div>
-  </section>
+  {% call section('Хобі та Інтереси') %}
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ab ullam
+    cupiditate suscipit sit ut pariatur a asperiores repudiandae iste ipsa in
+    voluptatibus consectetur debitis perferendis assumenda odit incidunt, numquam
+    libero. Non facilis voluptatibus ducimus cupiditate, dolorum odio cum dolorem
+    laborum velit eligendi aperiam consectetur perferendis suscipit culpa. Saepe
+    aut in eos temporibus minus eaque corrupti doloribus quia magnam repellendus,
+    quisquam exercitationem veniam tenetur repudiandae ex ipsa non, illo quo
+    soluta odit. Velit, harum! Velit, suscipit asperiores? Rem necessitatibus,
+    magnam cum ducimus maxime ut. Amet architecto ad reiciendis repellat quam
+    dolor. Blanditiis cumque repellendus consequatur sunt minus vitae,
+    exercitationem ad?
+  </p>
+  {% endcall %}
 
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">Освіта</h1>
-      </div>
+  {% call section('Освіта') %}
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ab ullam
+    cupiditate suscipit sit ut pariatur a asperiores repudiandae iste ipsa in
+    voluptatibus consectetur debitis perferendis assumenda odit incidunt, numquam
+    libero. Non facilis voluptatibus ducimus cupiditate, dolorum odio cum dolorem
+    laborum velit eligendi aperiam consectetur perferendis suscipit culpa. Saepe
+    aut in eos temporibus minus eaque corrupti doloribus quia magnam repellendus,
+    quisquam exercitationem veniam tenetur repudiandae ex ipsa non, illo quo
+    soluta odit. Velit, harum! Velit, suscipit asperiores? Rem necessitatibus,
+    magnam cum ducimus maxime ut. Amet architecto ad reiciendis repellat quam
+    dolor. Blanditiis cumque repellendus consequatur sunt minus vitae,
+    exercitationem ad?
+  </p>
+  {% endcall %}
 
-      <div class="section-body">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ab
-        ullam cupiditate suscipit sit ut pariatur a asperiores repudiandae iste
-        ipsa in voluptatibus consectetur debitis perferendis assumenda odit
-        incidunt, numquam libero. Non facilis voluptatibus ducimus cupiditate,
-        dolorum odio cum dolorem laborum velit eligendi aperiam consectetur
-        perferendis suscipit culpa. Saepe aut in eos temporibus minus eaque
-        corrupti doloribus quia magnam repellendus, quisquam exercitationem
-        veniam tenetur repudiandae ex ipsa non, illo quo soluta odit. Velit,
-        harum! Velit, suscipit asperiores? Rem necessitatibus, magnam cum
-        ducimus maxime ut. Amet architecto ad reiciendis repellat quam dolor.
-        Blanditiis cumque repellendus consequatur sunt minus vitae,
-        exercitationem ad?
-      </p>
-      </div>
-    </div>
-  </section>
+  {# {% call section('Соцмережі') %}{% endcall %} #}
+  {{section('Соцмережі')}}
 
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">Соцмережі</h1>
-      </div>
-
-      <!-- <div class="section-body"></div> -->
-    </div>
-  </section>
 {% endblock %}
 
 {% block scripts %}

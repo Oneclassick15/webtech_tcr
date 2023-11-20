@@ -1,0 +1,14 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+  <div class="wrapper">
+    {% include "shared/header.njk" %}
+    {% include "shared/nav.njk" %}
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "shared/footer.njk" %}
+  </div>
+{% endblock %}

@@ -16,7 +16,7 @@
 
         const currentScroll = window.scrollY;
 
-        if (this.prevScroll >= currentScroll) {
+        if (this.prevScroll > currentScroll) {
           this.setTopPosition(0);
         } else {
           this.setTopPosition(-this.element.offsetHeight);

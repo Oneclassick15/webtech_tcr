@@ -1,0 +1,38 @@
+.footer {
+  flex: 0 0;
+  background-color: var(--background-color);
+  box-shadow: 0 0 0.5rem rgb(0 0 0 / 20%);
+  border-top: 1px solid var(--text-color);
+  padding: 0 2rem;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .title__wrapper {
+    overflow: hidden;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 900;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .phone,
+  .email {
+    opacity: 0.6;
+    font-size: 16px;
+  }
+}

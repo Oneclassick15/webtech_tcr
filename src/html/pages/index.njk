@@ -1,18 +1,15 @@
-{% set page_name = '' %}
-{% set base_path = './' %}
+{% from 'components/_section.njk' import section %}
+
+{% extends "layouts/main.njk" %}
+
 {% set nav_active = '/' %}
-{% extends "layouts/base.njk" %}
 
 {% block content %}
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">Головна</h1>
-      </div>
 
-      <p class="section-body">
-        <i>Тут щось має бути...</i>
-      </p>
-    </div>
-  </section>
+  {% call section('Головна') %}
+  <p class="section-body">
+    <i>Тут щось має бути...</i>
+  </p>
+  {% endcall %}
+
 {% endblock %}

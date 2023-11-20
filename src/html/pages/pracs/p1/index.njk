@@ -1,8 +1,12 @@
-{% set prac_name = 'Практична 1' %}
+{% from 'components/_section.njk' import section %}
+
 {% extends "layouts/pracs.njk" %}
+
+{% set prac_name = 'Практична 1' %}
 
 {% block styles %}
   {{ super() }}
+
   <style>
     table {
       border-collapse: separate;
@@ -71,53 +75,50 @@
 
 {% block content %}
   {{ super() }}
-  <section>
-    <div class="container">
-      <div class="section-body" align="center">
 
-        <div style="overflow: auto hidden;">
-          <table cellspacing="0" align="center">
-            {% for day, items in Prac1Data.dates %}
-              <tr class="head">
-                <td align="center" height="50" width="100">{{day}}</td>
-                {% for item in items %}
-                  <td align="center" height="50" width="200">{{item}}</td>
-                {% endfor %}
-              </tr>
+  {% call section() %}
+  <div style="overflow: auto hidden;">
+    <table cellspacing="0" align="center">
+      {% for day, items in Prac1Data.dates %}
+        <tr class="head">
+          <td align="center" height="50" width="100">{{day}}</td>
+          {% for item in items %}
+            <td align="center" height="50" width="200">{{item}}</td>
+          {% endfor %}
+        </tr>
 
-              {% for lessons in Prac1Data.lessons[loop.index0] %}
-                <tr align="center" class="{{ 'start' if loop.first }}{{ 'end' if loop.last }}">
-                  {% for item in lessons %}
-                    {% if loop.first %}
-                      <td>
-                        {% for i in item %}
-                          <div>{{i}}</div>
-                        {% endfor %}
-                      </td>
-                    {% else %}
-                      {% if item %}
-                        <td align="center" height="100">
-                          <div>
-                            {{item[0]}}
-                            <b>[{{item[1]}}]</b>
-                          </div>
-                          <div>{{item[2]}}</div>
-                          <div>{{item[3]}}</div>
-                        </td>
-                      {% else %}
-                        <td></td>
-                      {% endif %}
-                    {% endif %}
+        {% for lessons in Prac1Data.lessons[loop.index0] %}
+          <tr align="center" class="{{ 'start' if loop.first }}{{ 'end' if loop.last }}">
+            {% for item in lessons %}
+              {% if loop.first %}
+                <td>
+                  {% for i in item %}
+                    <div>{{i}}</div>
                   {% endfor %}
-                </tr>
-              {% endfor %}
-
-              <tr class="spacer"></tr>
+                </td>
+              {% else %}
+                {% if item %}
+                  <td align="center" height="100">
+                    <div>
+                      {{item[0]}}
+                      <b>[{{item[1]}}]</b>
+                    </div>
+                    <div>{{item[2]}}</div>
+                    <div>{{item[3]}}</div>
+                  </td>
+                {% else %}
+                  <td></td>
+                {% endif %}
+              {% endif %}
             {% endfor %}
+          </tr>
+        {% endfor %}
 
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
+        <tr class="spacer"></tr>
+      {% endfor %}
+
+    </table>
+  </div>
+  {% endcall %}
+
 {% endblock %}

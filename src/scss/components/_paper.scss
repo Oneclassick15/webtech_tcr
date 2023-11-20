@@ -1,0 +1,10 @@
+.paper {
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 0.5rem rgb(0 0 0 / 10%);
+
+  display: flex;
+  justify-content: stretch;
+  flex-direction: column;
+}

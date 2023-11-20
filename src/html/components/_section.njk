@@ -1,0 +1,19 @@
+{% macro section(title = null) %}
+  <section class="section">
+    <div class="container">
+      <div class="paper">
+        {% if title %}
+          <div class="section-header">
+            <h1 class="section-title">{{ title }}</h1>
+          </div>
+        {% endif %}
+
+        {% if caller %}
+          <div class="section-body">
+            {{ caller() }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endmacro %}

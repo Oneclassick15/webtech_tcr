@@ -1,3 +1,8 @@
+{% set base_path = base_path | default('.') %}
+{% set assets_path = base_path + '/assets' %}
+{% set css_path = assets_path + '/css' %}
+{% set js_path = assets_path + '/js' %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,8 +10,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
-      {{page_name + ' - Бєляєв Данило' if page_name else 'Особистий вебсайт
-      Бєляєва Данила'}}
+      {{ page_name + ' - Бєляєв Данило' if page_name else 'Особистий вебсайт
+      Бєляєва Данила' }}
     </title>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -14,21 +19,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
 />
-    <link rel="stylesheet" href="{{base_path}}/assets/css/main.css"/>
+    <link rel="stylesheet" href="{{css_path}}/main.css"/>
     {% block styles %}{% endblock %}
-    <script src="{{base_path}}/assets/js/main.js"></script>
+    <script src="{{js_path}}/main.js"></script>
   </head>
   <body>
-    <div class="wrapper">
-      {% include "shared/header.njk" %}
-      {% include "shared/nav.njk" %}
-      <main>
-        {% block content %}{% endblock %}
-      </main>
+    {% block body %}{% endblock %}
 
-      {% include "shared/footer.njk" %}
-    </div>
-
-    {% block scripts %}{% endblock %}
+    {% block js %}{% endblock %}
   </body>
 </html>

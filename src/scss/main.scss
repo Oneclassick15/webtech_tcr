@@ -1,8 +1,12 @@
+@import 'base/mixins';
 @import 'base/base';
 
-@import 'components/header';
-@import 'components/nav';
-@import 'components/footer';
+@import 'shared/header';
+@import 'shared/nav';
+@import 'shared/footer';
+
+@import 'components/paper';
+@import 'components/section';
 
 main {
   flex: 1 1 auto;
@@ -13,82 +17,6 @@ main {
   flex-direction: column;
   justify-content: stretch;
   gap: 2rem;
-
-  section {
-    padding: 0 1rem;
-
-    & > .container {
-      background-color: var(--background-color);
-      border-radius: 0.5rem;
-      padding: 1rem 2rem;
-      box-shadow: 0 0 0.5rem rgb(0 0 0 / 10%);
-
-      display: flex;
-      justify-content: stretch;
-      flex-direction: column;
-
-      /* min-height: 100vh; */
-    }
-
-    .section-header {
-      // margin-bottom: 1rem;
-      position: sticky;
-      top: calc(var(--nav-height, 0));
-      padding: 1rem 0;
-      z-index: 9998;
-      background-color: #fff;
-
-      // border-inline: 1px solid var(--text-color);
-
-      .section-title {
-        font-size: 16px;
-        font-weight: 900;
-        text-align: center;
-
-        display: flex;
-        flex-direction: row;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        align-items: center;
-        gap: 1rem;
-        text-transform: uppercase;
-
-        &::before,
-        &::after {
-          flex: 1 1 auto;
-          content: '';
-          display: block;
-          height: 1px;
-          background: var(--text-color);
-          // opacity: 0.4;
-          margin-bottom: -1px;
-        }
-      }
-    }
-
-    .section-body {
-      font-size: 16px;
-      line-height: 1.2;
-
-      &:not(:first-child) {
-        padding-bottom: 1rem;
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      padding: 0;
-      .container {
-        box-shadow: none;
-        border-radius: 0;
-        padding: 1rem 2rem 2rem;
-
-        .section-header {
-          transition: top 0.5s ease-in-out;
-        }
-      }
-    }
-  }
 }
 
 .about__photo {

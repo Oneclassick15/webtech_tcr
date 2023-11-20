@@ -1,0 +1,150 @@
+{% from 'components/_section.njk' import section %}
+
+{% extends "layouts/labs.njk" %}
+
+{% set lab_name = 'Лабораторна 4' %}
+
+{% block styles %}
+  {{ super() }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{css_path}}/lab4.css">
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <section class="section">
+    <div class="container container-lab4">
+      <div class="paper">
+        <div class="weeklogo">
+          Weekly plan
+        </div>
+
+        <div class="weekdata">
+          <div>
+            <label for="week">Week of</label>
+            <input type="text" id="week" >
+          </div>
+
+          <div>
+            <label for="healthy">Healthy habit</label>
+            <input type="text" id="healthy" >
+          </div>
+        </div>
+
+        <div class="weekside">
+          <div>
+            <label for="rocked">Rocked it</label>
+            <input type="checkbox" id="rocked" >
+          </div>
+
+          <div>
+            <label for="room">ROOM FOR IMPROVEMENT</label>
+            <input type="checkbox" id="room" >
+          </div>
+        </div>
+      </div>
+      <div class="paper">
+        <div class="todo">TODO</div>
+        <div class="todo-group">
+          <div class="todo-title">Top 3 Goals</div>
+
+          <div>
+            <input type="checkbox">
+            <input type="text">
+          </div>
+
+          <div>
+            <input type="checkbox">
+            <input type="text">
+          </div>
+
+          <div>
+            <input type="checkbox">
+            <input type="text">
+          </div>
+        </div>
+
+        <div class="todo-group">
+          <div class="todo-title">Everthing else</div>
+
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+
+        </div>
+
+        <div class="todo-group">
+          <div class="todo-title">Next week</div>
+
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+          <div><input type="checkbox" ><input type="text" ></div>
+
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Monday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Tuesday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Wednesday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Thursday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Friday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Saturday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+      <div class="paper">
+        <div class="day">
+          Sunday
+
+          <input type="checkbox" >
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
