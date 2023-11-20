@@ -7,6 +7,7 @@
 {% set nav_active = '/labs' %}
 
 {% block styles %}
+  {{super()}}
   <style>
     .labs {
       list-style: none;
@@ -81,7 +82,7 @@
     <li>
       <a href="l4">Лабораторна 4</a>
     </li>
-    <li disabled>
+    <li>
       <a href="l5">Лабораторна 5</a>
     </li>
   </ul>
