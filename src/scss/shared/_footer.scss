@@ -1,8 +1,8 @@
 .footer {
   flex: 0 0;
-  background-color: var(--background-color);
+  background-color: var(--secondary-background-color);
   box-shadow: 0 0 0.5rem rgb(0 0 0 / 20%);
-  border-top: 1px solid var(--text-color);
+  border-top: 1px solid var(--border-color);
   padding: 0 2rem;
 
   .container {

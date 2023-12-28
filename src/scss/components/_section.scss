@@ -11,7 +11,7 @@
     top: calc(var(--nav-height, 0));
     padding: 1rem 0;
     z-index: 9998;
-    background-color: #fff;
+    background-color: var(--secondary-background-color);
 
     // border-inline: 1px solid var(--text-color);
 
@@ -35,7 +35,7 @@
         content: '';
         display: block;
         height: 1px;
-        background: var(--text-color);
+        background: var(--border-color);
         // opacity: 0.4;
         margin-bottom: -1px;
       }
@@ -54,9 +54,12 @@
   @media screen and (max-width: 600px) {
     padding: 0;
     & > .container {
-      box-shadow: none;
-      border-radius: 0;
-      padding: 1rem;
+      padding: 0;
+
+      & > .paper {
+        box-shadow: none;
+        border-radius: 0;
+      }
 
       .section-header {
         transition: top 0.5s ease-in-out;

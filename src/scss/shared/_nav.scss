@@ -6,8 +6,8 @@
 
   padding: 0 2rem;
 
-  background-color: var(--background-color);
-  border-bottom: 1px solid var(--text-color);
+  background-color: var(--secondary-background-color);
+  border-bottom: 1px solid var(--border-color);
 
   box-shadow: 0 0 0.5rem rgb(0 0 0 / 20%);
 
@@ -23,10 +23,10 @@
 
     li {
       flex: 0 0 auto;
-      border-right: 1px solid var(--text-color);
+      border-right: 1px solid var(--border-color);
 
       &:first-child {
-        border-left: 1px solid var(--text-color);
+        border-left: 1px solid var(--border-color);
       }
 
       a {
@@ -44,19 +44,19 @@
         text-overflow: ellipsis;
 
         @include hover {
-          background: #f8f9fa;
+          background: var(--primary-color-muted);
         }
 
         &.active {
-          background-color: var(--text-color);
-          color: #fff;
+          background-color: var(--primary-color);
+          color: var(--text-color-active);
 
           // @media screen and (prefers-color-scheme: dark) {
           //  color: #000;
           // }
 
           @include hover {
-            background: #343a40;
+            background: var(--primary-color-hover);
           }
         }
       }
@@ -67,10 +67,10 @@
       align-items: stretch;
 
       li {
-        border-left: 1px solid #000;
+        border-left: 1px solid var(--border-color);
 
         &:not(:last-child) {
-          border-bottom: 1px solid #000;
+          border-bottom: 1px solid var(--border-color);
         }
       }
     }
