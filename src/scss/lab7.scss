@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+
+  background: 0;
+  outline: 0;
+  border: 0;
+}
+
+body {
+  position: relative;
+  background: #93c5fd;
+  background: linear-gradient(133deg, #93c5fd, #c4b5fd);
+
+  display: flex;
+  flex-direction: column;
+
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.el {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+  background: #c4b5fd;
+  background: linear-gradient(133deg, #60a5fa, #7c3aed);
+  mask: center repeat;
+  mask-size: 420px auto;
+  mask-image: url('../img/lab7/bg.svg');
+  opacity: 1;
+}
+
+.wrapper {
+  position: relative;
+  padding: 2rem;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: auto 500px auto;
+  gap: 2rem;
+}
+
+.box {
+  background: rgb(0 0 0 / 20%);
+  backdrop-filter: blur(1px);
+
+  width: 100%;
+  max-width: 500px;
+
+  border-radius: 1rem;
+  border: 2px solid #fff;
+  box-shadow: 0 0 16px rgb(0 0 0 / 20%);
+
+  grid-column: 2 / span 1;
+  overflow: hidden;
+}
+
+.box__header {
+  padding: 1rem;
+  border-bottom: 2px dashed #fff;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    bottom: -12px;
+    background: #fff;
+  }
+
+  &::before {
+    left: -14px;
+    clip-path: polygon(50% 0%, 50% 100%, 100% 100%, 100% 0%);
+  }
+
+  &::after {
+    right: -14px;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 0%, 50% 100%, 0 100%);
+  }
+}
+
+.box__header__group {
+  color: #f8f9fa;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.box__header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box__header__title {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box__content {
+  padding: 2rem;
+  color: #f8f9fa;
+
+  p {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 628px) {
+  .el {
+    mask: none;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .box {
+    max-width: 100%;
+    border-radius: 0px;
+    border-width: 0px;
+  }
+}
