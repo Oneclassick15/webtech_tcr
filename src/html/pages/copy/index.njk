@@ -1,0 +1,100 @@
+{% from 'components/_section.njk' import section %}
+
+{% extends "layouts/main.njk" %}
+
+{% set page_name = 'Увага' %}
+{% set base_path = '..' %}
+
+{% block styles %}
+  {{super()}}
+
+  <style>
+    .bigText {
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .section-body {
+      display: grid;
+      gap: 4rem;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .redirect_origin {
+      display: none;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+    }
+
+    .redirect_origin.show {
+      display: grid;
+    }
+
+    .redirect_origin__title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .redirect_origin__url {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      box-shadow: 0 0 8px rgb(0 0 0 / 15%);
+      background-color: var(--primary-color);
+      color: var(--text-color-active);
+
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+  {% call section('Увага') %}
+  <div>
+    <p class="bigText">Цей сайт належить <b>Бєляєву Данилу, ТЦР-21</b>.</p>
+    <p class="bigText">
+      Код було скопійовано <span class="underline">без дозволу власника</span>.
+    </p>
+  </div>
+
+  <div class="redirect_origin">
+    <p class="redirect_origin__title">Вас було перенаправлено звідси:</p>
+
+    <div class="redirect_origin__url">
+        UNKNOWN URL
+      </div>
+  </div>
+
+  {% endcall %}
+
+{% endblock %}
+
+{% block js %}
+  {{super()}}
+
+  <script>
+    const url = new URL(window.location.href);
+    const from = url
+      .searchParams
+      .get('from');
+
+    if (from) {
+      const redirect_origin = document.querySelector('.redirect_origin');
+      redirect_origin
+        .classList
+        .add('show');
+
+      const redirect_origin__url = document.querySelector('.redirect_origin__url');
+      redirect_origin__url.innerText = from;
+    }
+  </script>
+{% endblock %}
